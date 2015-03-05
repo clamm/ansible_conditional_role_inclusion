@@ -1,0 +1,6 @@
+---
+- hosts: local
+  connection: local
+  gather_facts: false
+  roles:
+    - { role: my-role, when: run_my_role == true}

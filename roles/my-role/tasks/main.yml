@@ -1,0 +1,4 @@
+---
+
+- name: use a non existent variable
+  shell: echo "{{ this_is_not_defined }}"
