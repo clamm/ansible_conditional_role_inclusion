@@ -24,17 +24,17 @@ Specify the variable `run_my_role` in key/value format, try check mode and actua
 Either way (if check mode or actual run) the expected outcome is, that the role is included and the undefined variable is reported:
 
     TASK: [my-role | use a non existent variable] *********************************
-    fatal: [127.0.0.1] => One or more undefined variables: 'this_is_not_defined' is undefined
+    fatal: [localhost] => One or more undefined variables: 'this_is_not_defined' is undefined
 
 
 ### Actual outcome
 Either way (if check mode or actual run) the role is not included and the check mode does not detect missing variable definition:
 
     TASK: [my-role | use a non existent variable] *********************************
-    skipping: [127.0.0.1]
+    skipping: [localhost]
 
 
-### Work aorund
+### Work around
 Specify the variable `run_my_role` in json format, and even the check mode reports the missing variable:
 
      ansible-playbook my_playbook.yml -i env-local -e '{"run_my_role": true}' -v -C
